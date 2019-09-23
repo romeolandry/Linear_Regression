@@ -34,7 +34,7 @@ test_input = np.arange(*input_array)
 prediction = klasse_Model.anwendung_model(test_input,weight_value,bias_value)
 
 # show result
-daten.show_ergebnis("Funktion",input_val,output_val,test_input,prediction,weight_value,bias_value)
+daten.show_result("Funktion",input_val,output_val,test_input,prediction,weight_value,bias_value)
 
 
 

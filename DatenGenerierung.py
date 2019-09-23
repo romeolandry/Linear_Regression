@@ -38,7 +38,7 @@ class DatenGenerierung:
         plt.scatter(input_val, output, c= "red")
         plt.show()
 
-    def show_ergebnis (self,title,input_val,outpu_val,input_test,prediction,weight_value,bias_value):
+    def show_result (self,title,input_val,outpu_val,input_test,prediction,weight_value,bias_value):
         
         plt.title(title +' y= X*w + b  mit w= '+ str(weight_value) + 'und b = '+ str(bias_value))
         plt.scatter(input_val, outpu_val, c= "red", s=4, label="Original Werte")
