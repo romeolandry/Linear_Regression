@@ -37,3 +37,12 @@ class DatenGenerierung:
     def data_visualisation(self, input_val, output):
         plt.scatter(input_val, output, c= "red")
         plt.show()
+    def show_ergebnis (self,title,input_val,outpu_val,test_input,weighte_value,bias_value):
+        
+        plt.title(title +' y= X*w + b  mit w= '+ str(weighte_value) + 'und b = '+ str(bias_value))
+        plt.scatter(input_val, outpu_val, c= "red", s=4, label="Original Werte")
+        plt.scatter(test_input, test_input, c= "blue", s=5, label="Vorhergesagte Werte")
+        plt.legend(loc='upper left')
+
+        print("Vorhergesagewert für w: " + str(weighte_value))
+        plt.show(block=True)
