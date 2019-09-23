@@ -9,8 +9,8 @@ np.random.seed(42)
 class DatenGenerierung:
     def __init__(self,my_weight,range_input):
         self.__weight = my_weight
-        self.__input = np.arange(range_input)
-        self.__noise = np.random.randint(low=-5, high=5, size=self.__input)
+        self.__input = np.arange(0,range_input,0.1)
+        self.__noise = np.random.randint(low=-5, high=5, size=self.__input.shape)
 
     #getter und setter
     def get_weight(self):
@@ -33,7 +33,7 @@ class DatenGenerierung:
     def gen_daten(self):
         output = self.__weight * self.__input + self.__noise
         return (self.__input,output)
-        
-    def data_visualisation(self, input, output):
-        plt.scatter(input, output, c= "red")
+
+    def data_visualisation(self, input_val, output):
+        plt.scatter(input_val, output, c= "red")
         plt.show()
