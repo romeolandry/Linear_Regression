@@ -8,10 +8,6 @@ class LinearModel:
         self.__gewicht = gewicht
         self.__bias = bias
 
-    def update_model (self,gewicht,bias):
-        self.__gewicht = gewicht
-        self.__bias = bias
-            
     def linear_regresion_model(self):
         return (tf.add(tf.multiply(self.__eingabe,self.__gewicht,),self.__bias)) ## model = x*w + b
 
@@ -24,11 +20,10 @@ class LinearModel:
         with tf.Session() as sess_train:
             sess_train.run(tf.global_variables_initializer())
             for i in range(epoch):
-                print("----------Epoch: {} ---".format(i))
+                print("----------Epoch: {} ----------".format(i))
                 for (x,y) in zip(input_daten,output_daten):
                     sess_train.run(loss,feed_dict={input_model:x,output_model:y})
-
-                # Berechnung von Gewichtungen und Bias
+                # Berechnung von  der Gewichtungen und dem Bias
                 weight_value = sess_train.run(self.__gewicht)
                 bias_value = sess_train.run(self.__bias)
 

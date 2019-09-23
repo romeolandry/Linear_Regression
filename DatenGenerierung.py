@@ -9,8 +9,8 @@ np.random.seed(42)
 class DatenGenerierung:
     def __init__(self,my_weight,range_input):
         self.__weight = my_weight
-        self.__input = np.arange(0,range_input,0.1)
-        self.__noise = np.random.randint(low=-5, high=5, size=self.__input.shape)
+        self.__input = np.arange(*range_input)
+        self.__noise = np.random.randint(low = -2,high=2 ,size=self.__input.shape)
 
     #getter und setter
     def get_weight(self):
@@ -37,12 +37,15 @@ class DatenGenerierung:
     def data_visualisation(self, input_val, output):
         plt.scatter(input_val, output, c= "red")
         plt.show()
-    def show_ergebnis (self,title,input_val,outpu_val,test_input,weighte_value,bias_value):
-        
-        plt.title(title +' y= X*w + b  mit w= '+ str(weighte_value) + 'und b = '+ str(bias_value))
-        plt.scatter(input_val, outpu_val, c= "red", s=4, label="Original Werte")
-        plt.scatter(test_input, test_input, c= "blue", s=5, label="Vorhergesagte Werte")
-        plt.legend(loc='upper left')
 
-        print("Vorhergesagewert für w: " + str(weighte_value))
+    def show_ergebnis (self,title,input_val,outpu_val,input_test,prediction,weight_value,bias_value):
+        
+        plt.title(title +' y= X*w + b  mit w= '+ str(weight_value) + 'und b = '+ str(bias_value))
+        plt.scatter(input_val, outpu_val, c= "red", s=4, label="Original Werte")
+        plt.scatter(input_test, prediction, c= "blue", s=5, label="Vorhergesagte Werte")
+        plt.legend(loc='upper left')
+        plt.savefig('linearregression.png')
+
+        print("Vorhergesagewert für w: " + str(weight_value))
+
         plt.show(block=True)
